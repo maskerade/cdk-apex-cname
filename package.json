@@ -1,6 +1,6 @@
 {
   "name": "cdk-apex-cname",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "CDK construct to allow setting an apex record to a cname",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -22,6 +22,11 @@
       }
     }
   },
+  "keywords": [
+    "cdk",
+    "aws-cdk",
+    "aws"
+  ],
   "author": {
     "name": "Stefan De Figueiredo",
     "url": "https://github.com/maskerade"
@@ -42,7 +47,11 @@
   },
   "peerDependencies": {
     "@aws-cdk/core": "^1.39.0",
-    "constructs": "^3.0.3"
+    "constructs": "^3.0.3",
+    "@aws-cdk/aws-events": "^1.39.0",
+    "@aws-cdk/aws-events-targets": "^1.39.0",
+    "@aws-cdk/aws-iam": "^1.39.0",
+    "@aws-cdk/aws-lambda": "^1.39.0"
   },
   "dependencies": {
     "@aws-cdk/aws-events": "^1.39.0",

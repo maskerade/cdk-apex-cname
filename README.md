@@ -8,7 +8,7 @@ not in Route 53.
 
 First install the package 
 ```
-npm install @maskerade/cdk-apex-cname
+npm install cdk-apex-cname
 ```
 
 
