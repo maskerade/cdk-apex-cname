@@ -1,5 +1,5 @@
 {
-  "name": "@maskerade/cdk-apex-cname",
+  "name": "cdk-apex-cname",
   "version": "0.1.1",
   "description": "CDK construct to allow setting an apex record to a cname",
   "main": "lib/index.js",
