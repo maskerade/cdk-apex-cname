@@ -24,3 +24,4 @@ new CdkApexCname(this, 'CdkApexCname', {
     apexCnameRuleCron: "cron(0 * ? * * *)"
 });
 ```
+
