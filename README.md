@@ -15,7 +15,7 @@ npm install cdk-apex-cname
 Then you can use the Apex CNAME in your code:
 
 ```ts
-import { CdkApexCname } from "@maskerade/cdk-apex-cname";
+import { CdkApexCname } from "cdk-apex-cname";
 
 new CdkApexCname(this, 'CdkApexCname', {
     apexName: 'apex.com',
