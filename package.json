@@ -42,7 +42,7 @@
   },
   "peerDependencies": {
     "@aws-cdk/core": "^1.39.0",
-    "constructs": "^1.1.2"
+    "constructs": "^3.0.3"
   },
   "dependencies": {
     "@aws-cdk/aws-events": "^1.39.0",
