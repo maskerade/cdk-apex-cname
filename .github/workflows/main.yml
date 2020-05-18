@@ -6,13 +6,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: get-npm-version
-        id: package-version
-        uses: martinbeentjes/npm-get-version-action@master
       - name: Checkout code
         uses: actions/checkout@v1
         with:
           fetch-depth: 1
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@master
       - name: Publish packages
         uses: udondan/jsii-publish@v0.8.3
         with:
