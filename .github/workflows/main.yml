@@ -6,9 +6,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Get the version
-        id: get_version
-        run: echo ::set-output name=VERSION::${grep '"version":' package.json -m1 | cut -d\" -f4}
+      - name: get-npm-version
+        id: package-version
+        uses: martinbeentjes/npm-get-version-action@master
       - name: Checkout code
         uses: actions/checkout@v1
         with:
@@ -16,7 +16,7 @@ jobs:
       - name: Publish packages
         uses: udondan/jsii-publish@v0.8.3
         with:
-          VERSION: ${{ steps.get_version.outputs.VERSION }}
+          VERSION: ${{ steps.package-version.outputs.current-version }}
           BUILD_SOURCE: true
           BUILD_PACKAGES: true
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
