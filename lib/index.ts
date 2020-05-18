@@ -11,10 +11,10 @@ export interface CdkApexCnameProps {
    * The properties for the Apex Cname Lambda.
    *
    */
-  apexName: string;
-  recordName: string;
-  hostedZoneId: string;
-  apexCnameRuleCron: string;
+  readonly apexName: string;
+  readonly recordName: string;
+  readonly hostedZoneId: string;
+  readonly apexCnameRuleCron: string;
 }
 
 
