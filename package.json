@@ -1,13 +1,35 @@
 {
-  "name": "cdk-apex-cname",
-  "version": "0.1.0",
+  "name": "@maskerade/cdk-apex-cname",
+  "version": "0.1.1",
+  "description": "CDK construct to allow setting an apex record to a cname",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "cdk-build": "tsc",
+    "build": "jsii",
+    "build:watch": "jsii -w",
+    "package": "jsii-pacmak",
+    "test": "tsc && jest",
     "watch": "tsc -w",
-    "test": "jest"
+    "cdk": "cdk"
   },
+  "jsii": {
+    "outdir": "dist",
+    "targets": {
+      "python": {
+        "distName": "cdk-apex-cname",
+        "module": "cdk-apex-cname"
+      }
+    }
+  },
+  "author": {
+    "name": "Stefan De Figueiredo",
+    "url": "https://github.com/maskerade"
+  },
+  "repository": {
+    "url": "https://github.com/maskerade/cdk-apex-cname.git"
+  },
+  "license": "ISC",
   "devDependencies": {
     "@aws-cdk/assert": "1.39.0",
     "@types/jest": "^25.2.1",
@@ -20,9 +42,10 @@
     "@aws-cdk/core": "1.39.0"
   },
   "dependencies": {
-    "@aws-cdk/aws-sns": "1.39.0",
-    "@aws-cdk/aws-sns-subscriptions": "1.39.0",
-    "@aws-cdk/aws-sqs": "1.39.0",
+    "@aws-cdk/aws-events": "^1.39.0",
+    "@aws-cdk/aws-events-targets": "^1.39.0",
+    "@aws-cdk/aws-iam": "^1.39.0",
+    "@aws-cdk/aws-lambda": "^1.39.0",
     "@aws-cdk/core": "1.39.0"
   }
 }

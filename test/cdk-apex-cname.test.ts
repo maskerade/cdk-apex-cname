@@ -1,21 +1,33 @@
-import { expect as expectCDK, haveResource, SynthUtils } from '@aws-cdk/assert';
+//import { expect as expectCDK, haveResource, SynthUtils } from '@aws-cdk/assert';
+import '@aws-cdk/assert/jest';
 import * as cdk from '@aws-cdk/core';
-import * as CdkApexCname from '../lib/index';
+import {CdkApexCname} from '../lib/index';
 
-test('SQS Queue Created', () => {
-    const app = new cdk.App();
-    const stack = new cdk.Stack(app, "TestStack");
-    // WHEN
-    new CdkApexCname.CdkApexCname(stack, 'MyTestConstruct');
-    // THEN
-    expectCDK(stack).to(haveResource("AWS::SQS::Queue"));
-});
+const CdkApexCnameProps = {
+    apexName: 'apex.com',
+    recordName: 'cname.example.com',
+    hostedZoneId: 'ZONE1234',
+    apexCnameRuleCron: "cron(0 * ? * * *)"
+};
 
-test('SNS Topic Created', () => {
+test('Lambda Function Created', () => {
   const app = new cdk.App();
   const stack = new cdk.Stack(app, "TestStack");
   // WHEN
-  new CdkApexCname.CdkApexCname(stack, 'MyTestConstruct');
+  new CdkApexCname(stack, 'MyTestConstruct', CdkApexCnameProps);
   // THEN
-  expectCDK(stack).to(haveResource("AWS::SNS::Topic"));
+
+  expect(stack).toHaveResource("AWS::Lambda::Function");
+});
+
+
+test('Event Rule Created', () => {
+    const app = new cdk.App();
+    const stack = new cdk.Stack(app, "TestStack");
+    // WHEN
+    new CdkApexCname(stack, 'MyTestConstruct', CdkApexCnameProps);
+    // THEN
+    expect(stack).toHaveResource("AWS::Events::Rule", {
+        "ScheduleExpression": CdkApexCnameProps.apexCnameRuleCron
+    });
 });

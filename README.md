@@ -1,12 +1,26 @@
-# Welcome to your CDK TypeScript Construct Library project!
+# CDK Apex Cname - Route53
 
-You should explore the contents of this project. It demonstrates a CDK Construct Library that includes a construct (`CdkApexCname`)
-which contains an Amazon SQS queue that is subscribed to an Amazon SNS topic.
+A CDK utility construct that allows you to set an domain apex (in Route53) to redirect to a cname records of a resource 
+not in Route 53. 
 
-The construct defines an interface (`CdkApexCnameProps`) to configure the visibility timeout of the queue.
+## Usage
+### Typescript
 
-## Useful commands
+First install the package 
+```
+npm install @maskerade/cdk-apex-cname
+```
 
- * `npm run build`   compile typescript to js
- * `npm run watch`   watch for changes and compile
- * `npm run test`    perform the jest unit tests
+
+Then you can use the Apex CNAME in your code:
+
+```ts
+import { CdkApexCname } from "@maskerade/cdk-apex-cname";
+
+new CdkApexCname(this, 'CdkApexCname', {
+    apexName: 'apex.com',
+    recordName: 'cname.example.com',
+    hostedZoneId: 'ZONE1234',
+    apexCnameRuleCron: "cron(0 * ? * * *)"
+});
+```
