@@ -1,6 +1,6 @@
 # CDK Apex Cname - Route53
 
-A CDK utility construct that allows you to set an domain apex (in Route53) to redirect to a cname records of a resource 
+A CDK utility construct to allowing setting an domain apex (in Route53) to resolve to a cname record of a resource 
 not in Route 53. 
 
 ## Usage
